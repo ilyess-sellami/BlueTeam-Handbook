@@ -470,12 +470,12 @@ A playbook defines step-by-step actions for common incidents (malware, phishing,
 Vulnerabilities & Exploits focus on identifying weaknesses in systems and understanding how attackers may exploit them. SOC analysts use scanning, threat intelligence, and patching strategies to reduce risk.  
 
 ### ❓ What is CVE & CVSS?  
-**CVE (Common Vulnerabilities and Exposures):** Public database of known vulnerabilities.  
-**CVSS (Common Vulnerability Scoring System):** Provides a severity score to prioritize remediation.  
+- **CVE (Common Vulnerabilities and Exposures):** Public database of known vulnerabilities.  
+- **CVSS (Common Vulnerability Scoring System):** Provides a severity score to prioritize remediation.  
 
 ### ❓ What is the difference between vulnerability scanning and penetration testing?  
-**Vulnerability scanning:** Automated tool to detect known weaknesses.  
-**Penetration testing:** Manual or automated simulation of attacks to exploit vulnerabilities.  
+- **Vulnerability scanning:** Automated tool to detect known weaknesses.  
+- **Penetration testing:** Manual or automated simulation of attacks to exploit vulnerabilities.  
 
 ### ❓ How do you handle zero-days?  
 Implement network segmentation, monitoring, and anomaly detection. Apply virtual patching and monitor threat intelligence feeds until an official patch is available.  
@@ -517,19 +517,19 @@ By connecting SIEM, SOAR, IDS/IPS, and threat feeds to provide correlation, auto
 Case study questions test practical SOC skills in analyzing incidents and applying knowledge to real-world scenarios.  
 
 ### ❓ How would you investigate a brute-force attack?  
-👉 Analyze logs from SIEM/EDR, identify the source IP, check affected accounts, and implement containment measures (block IP, reset passwords).  
+Analyze logs from SIEM/EDR, identify the source IP, check affected accounts, and implement containment measures (block IP, reset passwords).  
 
 ### ❓ How would you analyze phishing email headers?  
-👉 Inspect the “From” address, DKIM/SPF/DMARC records, URLs, and attachments to identify malicious intent.  
+Inspect the “From” address, DKIM/SPF/DMARC records, URLs, and attachments to identify malicious intent.  
 
 ### ❓ What steps would you take during lateral movement detection?  
-👉 Monitor internal network traffic, look for unusual authentication events, review SIEM alerts, and isolate affected systems.  
+Monitor internal network traffic, look for unusual authentication events, review SIEM alerts, and isolate affected systems.  
 
 ### ❓ How would you respond to a detected malware outbreak?  
-👉 Isolate infected endpoints, collect IoCs, run sandbox analysis, notify IR team, and initiate recovery procedures.  
+Isolate infected endpoints, collect IoCs, run sandbox analysis, notify IR team, and initiate recovery procedures.  
 
 ### ❓ How would you handle a cloud misconfiguration incident?  
-👉 Identify misconfigured resources, restrict access, check for exfiltrated data, implement remediation, and monitor for recurring issues. 
+Identify misconfigured resources, restrict access, check for exfiltrated data, implement remediation, and monitor for recurring issues. 
 
 ---
 
