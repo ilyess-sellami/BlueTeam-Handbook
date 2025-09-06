@@ -250,7 +250,6 @@ Network Security focuses on protecting the organization’s network infrastructu
 - Detects suspicious domains (C2 servers, phishing).  
 - Monitors unusual DNS queries (fast-flux, tunneling).  
 - Can trigger alerts in SIEM.  
-📸 *[Insert screenshot: DNS query log analysis]*  
 
 ### ❓ What is SSL/TLS inspection and why is it used?  
 - Decrypts encrypted traffic at the firewall/proxy for inspection.  
