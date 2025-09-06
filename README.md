@@ -350,7 +350,7 @@ Example in Splunk:
 index=windows EventCode=4688 
 | where like(CommandLine, "%powershell%") 
 AND like(CommandLine, "%-enc%")
-
+```
 
 ---
 
