@@ -137,6 +137,7 @@ Log normalization is the process of **standardizing log data** from different so
 
 ### ❓ What is a SIEM dashboard?  
 A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.  
+
 📸 *[Example Wazuh SIEM dashboard]*  
 
 ### ❓ What is the difference between on-premises and cloud SIEM?  
@@ -150,6 +151,7 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 - **Correlation & Analysis Layer:** Applies rules, detection logic, and machine learning.  
 - **Storage Layer:** Retains historical logs for investigation and compliance.  
 - **Presentation Layer:** Dashboards, alerts, reports for SOC analysts.  
+
 📸 *[Example ELK SIEM architecture]*  
 
 ### ❓ What is the workflow of a SIEM in a SOC?  
@@ -189,19 +191,115 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 
 ## 🌐 Network Security  
 
-❓ Explain OSI vs TCP/IP models.  
-❓ How would you detect a DDoS attack?  
-❓ IDS vs IPS – key differences.  
-📸 *[Insert screenshot: Wireshark packet capture analysis]*  
+### ❓ Explain the difference between the OSI and TCP/IP models.  
+- **OSI (7 layers):** Application, Presentation, Session, Transport, Network, Data Link, Physical.  
+- **TCP/IP (4 layers):** Application, Transport, Internet, Network Access.  
+- OSI is theoretical; TCP/IP is practical and used in real networking.  
+
+### ❓ How would you detect a DDoS attack?  
+- **Indicators:** Unusual traffic spikes, service unavailability, abnormal bandwidth usage.  
+- **Detection tools:** NetFlow, IDS/IPS, SIEM alerts, firewall logs.  
+- **SOC action:** Identify attack type (volumetric, application-layer, protocol), mitigate via rate-limiting, WAF, scrubbing.  
+
+### ❓ IDS vs IPS – key differences.  
+- **IDS (Intrusion Detection System):** Monitors and alerts on suspicious traffic, but does not block.  
+- **IPS (Intrusion Prevention System):** Detects and blocks malicious traffic in real-time.  
+
+### ❓ What are common types of network attacks?  
+- DDoS / DoS  
+- Man-in-the-Middle (MITM)  
+- ARP Spoofing  
+- DNS Poisoning  
+- Port Scanning & Reconnaissance  
+
+### ❓ What is a firewall and what are its types?  
+- **Firewall:** A security device that monitors and controls traffic based on rules.  
+- **Types:**  
+  - Packet Filtering Firewall  
+  - Stateful Inspection Firewall  
+  - Application Firewall (WAF)  
+  - Next-Gen Firewall (NGFW)  
+
+### ❓ Explain the difference between symmetric and asymmetric encryption.  
+- **Symmetric:** Same key for encryption/decryption (AES, DES). Fast but key distribution is hard.  
+- **Asymmetric:** Public/private key pair (RSA, ECC). Secure key exchange, but slower.  
+
+### ❓ What is a VPN and how does it secure communication?  
+- **VPN (Virtual Private Network):** Encrypts traffic between user and network over public internet.  
+- Uses tunneling protocols (IPSec, SSL/TLS).  
+- Ensures **confidentiality, integrity, and authentication**.  
+
+📸 *[VPN tunnel diagram]*  
+
+### ❓ Explain Zero Trust Network Security.  
+- "Never trust, always verify."  
+- Every request is authenticated, authorized, and encrypted.  
+- Reduces lateral movement risks.  
+
+### ❓ What is network segmentation and why is it important?  
+- Dividing a network into smaller zones with limited communication.  
+- Prevents lateral movement, improves performance, enforces least privilege.  
+- Example: Separating user VLANs from critical servers.  
+
+### ❓ How does DNS monitoring help in SOC operations?  
+- Detects suspicious domains (C2 servers, phishing).  
+- Monitors unusual DNS queries (fast-flux, tunneling).  
+- Can trigger alerts in SIEM.  
+📸 *[Insert screenshot: DNS query log analysis]*  
+
+### ❓ What is SSL/TLS inspection and why is it used?  
+- Decrypts encrypted traffic at the firewall/proxy for inspection.  
+- Detects malware hidden in HTTPS.  
+- Balance between **security and privacy**.  
+
+
+### ❓ How would you investigate a suspicious IP connection?  
+1. Identify source/destination IP from logs.  
+2. Check against threat intelligence feeds.  
+3. Look for unusual ports or protocols.  
+4. Correlate with other alerts (endpoint logs, firewall).  
+5. Escalate if confirmed malicious.  
 
 ---
 
 ## 💻 Endpoint Security  
 
-❓ What is EDR vs Antivirus?  
-❓ Explain common Windows Event IDs (4624, 4625, 4688).  
-❓ How would you investigate a suspicious process?  
-📸 *[Insert screenshot: Sysmon logs visualization]*  
+### ❓ What is the difference between Antivirus (AV) and Endpoint Detection & Response (EDR)?  
+- **Antivirus (AV):** Signature-based detection of known malware. Limited against advanced threats.  
+- **EDR:** Provides real-time monitoring, detection, and response capabilities for suspicious activities on endpoints. Includes behavior analysis, process monitoring, and forensic data.  
+
+### ❓ How would you investigate a suspicious process on an endpoint?  
+1. Identify the process (PID, parent process).  
+2. Check file location & digital signature.  
+3. Correlate with Sysmon logs (event 1 – process creation).  
+4. Search hash in VirusTotal/Threat Intel.  
+5. Review network connections (Sysmon event 3).  
+6. Escalate or terminate process if malicious.  
+
+### ❓ What is Sysmon and how is it used in SOC?  
+- **Sysmon (System Monitor):** Windows tool that logs detailed system activity.  
+- Captures process creation, network connections, file modifications, registry changes.  
+- Provides visibility for **threat hunting** and **incident investigations**.  
+
+### ❓ How would you investigate a potential ransomware infection on an endpoint?  
+1. Identify suspicious process activity (mass file changes).  
+2. Look for unusual **file extensions**.  
+3. Detect network connections to C2.  
+4. Isolate endpoint immediately.  
+5. Check logs for initial infection vector (phishing, exploit).  
+
+### ❓ How do you monitor Linux endpoints in SOC?  
+- Use auditd, Sysmon for Linux, OSSEC/Wazuh agents.  
+- Monitor `/var/log/auth.log` for login activity.  
+- Watch for suspicious processes, privilege escalations, and cron jobs.  
+
+### ❓ What are Indicators of Compromise (IoCs) on endpoints?  
+- Suspicious processes (explorer.exe spawning cmd.exe).  
+- Abnormal network connections.  
+- Malicious file hashes.  
+- Unexpected registry changes.  
+- Disabled security tools.  
+
 
 ---
 
@@ -210,6 +308,7 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 ❓ What is an IoC vs IoA?  
 ❓ Explain the MITRE ATT&CK framework.  
 ❓ Give an example of a hunting query.  
+
 📸 *[Insert screenshot: MITRE ATT&CK Navigator view]*  
 
 ---
@@ -219,6 +318,7 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 ❓ What are common types of malware?  
 ❓ How would you analyze a suspicious file hash?  
 ❓ What is the role of a sandbox?  
+
 📸 *[Insert screenshot: Any.Run malware analysis]*  
 
 ---
