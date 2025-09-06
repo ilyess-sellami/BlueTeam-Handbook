@@ -33,8 +33,36 @@ Organizations need a SOC to:
 - Support **incident response** and reduce business impact.  
 - Ensure compliance with **regulatory frameworks** (ISO 27001, PCI-DSS, HIPAA, etc.).
 
-❓ Explain SOC roles & tiers (L1, L2, L3, Threat Hunter, IR).  
-❓ What is the difference between detection and prevention?  
+### ❓ Explain SOC roles & tiers (L1, L2, L3, Threat Hunter, IR).  
+
+- **Tier 1 (SOC Analyst / Alert Triage):**  
+  - Monitors SIEM alerts.  
+  - Performs **initial triage**.  
+  - Escalates real incidents to Tier 2.  
+
+- **Tier 2 (Incident Responder):**  
+  - Performs **deep analysis** of alerts.  
+  - Investigates **log correlations, network traffic, malware samples**.  
+  - Coordinates containment & remediation.  
+
+- **Tier 3 (Threat Hunter / SME):**  
+  - Hunts for **unknown/advanced threats** using hypothesis-driven searches.  
+  - Creates **detection rules & playbooks**.  
+  - Supports Tier 1 & 2.  
+
+- **Incident Response Team (IR):**  
+  - Specialized responders handling **containment, eradication, recovery**.  
+  - Works closely with legal, PR, and management.  
+
+### ❓ What is the difference between detection and prevention?  
+
+- **Detection:**  
+  - Identifying suspicious or malicious activity **after it occurs**.  
+  - Example: SIEM alert for failed login attempts.  
+
+- **Prevention:**  
+  - Blocking malicious activity **before it causes harm**.  
+  - Example: Firewall blocking malicious IP addresses.  
 
 ---
 
