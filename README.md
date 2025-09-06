@@ -64,6 +64,43 @@ Organizations need a SOC to:
   - Blocking malicious activity **before it causes harm**.  
   - Example: Firewall blocking malicious IP addresses.  
 
+👉 A mature SOC uses **both detection and prevention** to strengthen defense.  
+
+### ❓ What types of data/logs does a SOC collect?  
+- **Network logs:** Firewall, IDS/IPS, proxies, routers.  
+- **Endpoint logs:** Antivirus, EDR, Windows Event IDs, Sysmon.  
+- **Authentication logs:** Active Directory, LDAP, IAM systems.  
+- **Application logs:** Web servers, databases.  
+- **Cloud logs:** AWS CloudTrail, Azure Monitor, GCP Logs.  
+
+### ❓ What is the Kill Chain model?  
+The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:  
+1. Reconnaissance  
+2. Weaponization  
+3. Delivery  
+4. Exploitation  
+5. Installation  
+6. Command & Control  
+7. Actions on Objectives
+ 
+👉 SOC teams map detections and defenses to each phase.  
+
+### ❓ What is the MITRE ATT&CK framework and why is it important for SOC?  
+- **MITRE ATT&CK** is a knowledge base of **tactics, techniques, and procedures (TTPs)** used by adversaries.  
+- Helps SOC teams to:  
+  - Map alerts to known attacker behaviors.  
+  - Develop detection use cases.  
+  - Guide threat hunting.  
+  - Identify coverage gaps.
+
+
+### ❓ What are common SOC challenges?  
+- **Alert fatigue:** Too many false positives.  
+- **Tool overload:** Managing multiple tools without integration.  
+- **Skill gap:** Shortage of trained SOC analysts.  
+- **Evolving threats:** Adapting to zero-days and new attack techniques.  
+- **Visibility gaps:** Missing logs or blind spots in monitoring.  
+
 ---
 
 ## 📊 SIEM (Security Information and Event Management)  
