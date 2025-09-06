@@ -15,7 +15,6 @@ This handbook covers everything from **SIEMs** to **Incident Response**, with ca
 - [Threat Intelligence & Hunting](#-threat-intelligence--hunting)  
 - [Malware Analysis](#-malware-analysis-basic-for-soc)  
 - [Incident Response](#-incident-response)  
-- [Cloud Security](#-cloud-security)  
 - [Vulnerabilities & Exploits](#-vulnerabilities--exploits)  
 - [Security Tools](#-security-tools)  
 - [Case Study Questions](#-case-study-questions)  
@@ -24,6 +23,8 @@ This handbook covers everything from **SIEMs** to **Incident Response**, with ca
 ---
 
 ## 🏢 SOC Fundamentals  
+
+SOC Fundamentals focus on the core roles, processes, and tools used in a Security Operations Center. Analysts monitor, detect, and respond to security incidents while understanding the SOC structure, tiers, and best practices.
 
 ### ❓ What is a SOC and why do organizations need it?  
 A **Security Operations Center (SOC)** is a centralized unit that **monitors, detects, analyzes, and responds** to cybersecurity incidents.  
@@ -111,6 +112,8 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
 
 ## 📊 SIEM (Security Information and Event Management)  
 
+SIEM focuses on collecting, analyzing, and correlating security logs from multiple sources. SOC analysts use SIEM tools to detect, investigate, and respond to threats, enabling centralized monitoring and alerting across the organization.
+
 ### ❓ What is a SIEM and how does it work?  
 A **SIEM** collects, correlates, and analyzes security events from multiple sources in real-time.  
 It helps SOC teams **detect, investigate, and respond** to threats efficiently.  
@@ -191,6 +194,8 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 
 ## 🌐 Network Security  
 
+Network Security focuses on protecting the organization’s network infrastructure, monitoring traffic, and detecting malicious activity. SOC analysts analyze logs, IDS/IPS alerts, and network flows to identify and respond to threats in real time.
+
 ### ❓ Explain the difference between the OSI and TCP/IP models.  
 - **OSI (7 layers):** Application, Presentation, Session, Transport, Network, Data Link, Physical.  
 - **TCP/IP (4 layers):** Application, Transport, Internet, Network Access.  
@@ -264,6 +269,8 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 
 ## 💻 Endpoint Security  
 
+Endpoint Security focuses on monitoring and protecting individual devices (workstations, servers, laptops) from malicious activity. SOC analysts use logs, EDR, and behavior analysis to detect, investigate, and respond to threats on endpoints.
+
 ### ❓ What is the difference between Antivirus (AV) and Endpoint Detection & Response (EDR)?  
 - **Antivirus (AV):** Signature-based detection of known malware. Limited against advanced threats.  
 - **EDR:** Provides real-time monitoring, detection, and response capabilities for suspicious activities on endpoints. Includes behavior analysis, process monitoring, and forensic data.  
@@ -305,70 +312,243 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 
 ## 🔎 Threat Intelligence & Hunting  
 
-❓ What is an IoC vs IoA?  
-❓ Explain the MITRE ATT&CK framework.  
-❓ Give an example of a hunting query.  
+Threat Intelligence & Hunting helps SOC analysts proactively search for malicious activity and understand the tactics, techniques, and procedures (TTPs) of adversaries.  
 
-📸 *[Insert screenshot: MITRE ATT&CK Navigator view]*  
+### ❓ What is Threat Intelligence, and why is it important in SOC operations?  
+Threat Intelligence provides context about attackers, their methods, and indicators, enabling better detection, response, and prevention.  
+
+### ❓ What is the difference between Threat Intelligence, Threat Hunting, and Threat Detection?  
+ 
+- **Threat Intelligence** → Knowledge about adversaries and their TTPs.  
+- **Threat Detection** → Identifying malicious activities using alerts, SIEMs, and EDR.  
+- **Threat Hunting** → Proactively searching for hidden threats that bypass automated detection.  
+
+### ❓ What is an IoC vs IoA?  
+
+- **IoC (Indicator of Compromise)** → Evidence of a breach (IP, hash, domain).  
+- **IoA (Indicator of Attack)** → Evidence of malicious intent or behavior (abnormal PowerShell execution, privilege escalation).  
+
+### ❓ Explain the MITRE ATT&CK framework.  
+ATT&CK is a knowledge base of adversary tactics and techniques mapped to real-world attack behaviors. Analysts use it to understand threats and align detection strategies.  
+
+### ❓ What are the different types of Threat Intelligence?  
+
+- **Strategic** → High-level, business impact.  
+- **Tactical** → Adversary TTPs.  
+- **Operational** → Threat actor campaigns and ongoing attacks.  
+- **Technical** → IoCs (IP, domains, hashes).  
+
+### ❓ What sources can provide Threat Intelligence feeds?  
+Open-source (OSINT), commercial threat intel providers, ISACs, government advisories, internal telemetry.  
+
+### ❓ What is a hunting hypothesis, and why is it important?  
+A hypothesis is an assumption (e.g., "Adversary might use credential dumping") that guides the hunting process, ensuring it’s structured and measurable.  
+
+### ❓ Give an example of a hunting query.  
+Example in Splunk:  
+```spl
+index=windows EventCode=4688 
+| where like(CommandLine, "%powershell%") 
+AND like(CommandLine, "%-enc%")
+
 
 ---
 
 ## 🐛 Malware Analysis (Basic for SOC)  
 
-❓ What are common types of malware?  
-❓ How would you analyze a suspicious file hash?  
-❓ What is the role of a sandbox?  
+Malware analysis helps SOC analysts understand, detect, and respond to malicious software infections. In a SOC1/2 context, the focus is usually on **basic identification, triage, and escalation** rather than reverse engineering.  
 
-📸 *[Insert screenshot: Any.Run malware analysis]*  
+## 📌 Key Interview Questions  
+
+### ❓ What are common types of malware?  
+Virus, Worm, Trojan, Ransomware, Spyware, Rootkit, Adware, Keylogger.  
+
+### ❓ What is the difference between Static and Dynamic Malware Analysis?   
+- **Static Analysis** → Examining the file without executing it (hashing, strings, file headers, AV scans).  
+- **Dynamic Analysis** → Running the file in a sandbox or controlled environment to observe behavior.  
+
+### ❓ How would you analyze a suspicious file hash?  
+Use online services (VirusTotal, Hybrid Analysis, Intezer) or internal sandboxes to check reputation and behavior.  
+
+### ❓ What is the role of a sandbox in malware analysis?  
+Provides a safe environment to execute malware and observe its behavior (network connections, file changes, registry modifications).  
+
+### ❓ What is the difference between a hash (MD5/SHA256) and a YARA rule?   
+- **Hash** → Identifies a specific file (but easy to bypass with changes).  
+- **YARA rule** → Identifies malware families or patterns of malicious behavior across multiple variants.  
+
+### ❓ What Windows Event IDs are useful for detecting malware execution?  
+Common ones include:  
+- **4688** → Process creation  
+- **4624/4625** → Logon success/failure  
+- **7045** → New service installed  
+- **4720** → New user account created  
+
+### ❓ How do attackers use persistence techniques?  
+Examples: Run keys in registry, scheduled tasks, startup folders, malicious services, DLL hijacking.  
+
+### ❓ What is fileless malware and how is it detected?  
+Malware that operates in memory without leaving files on disk. Detected via EDR tools, PowerShell logging, Sysmon, and behavior analysis.  
+
+### ❓ What steps would you take if an employee reports a suspicious email attachment?  
+Isolate the file, collect metadata (hash, extension), analyze in sandbox, check if similar IoCs exist in TI feeds, escalate if confirmed malicious.  
+
+### ❓ What is the role of Indicators of Compromise (IoCs) in malware analysis?  
+IoCs like hashes, IPs, domains, mutexes are extracted during analysis and used for detection in SIEM/EDR.  
 
 ---
 
 ## 🚨 Incident Response  
 
-❓ What are the 6 phases of the IR lifecycle?  
-❓ How do you classify incident severity?  
-❓ What would you do in case of ransomware detection?  
-📸 *[Insert screenshot: Incident response playbook flow]*  
+Incident Response (IR) is the process of identifying, containing, mitigating, and recovering from security incidents. SOC analysts must understand the IR lifecycle and best practices.  
 
----
+### ❓ What are the 6 phases of the Incident Response lifecycle?  
+1. **Preparation** → Policies, playbooks, tools, training.  
+2. **Identification** → Detect and validate incidents using SIEM, IDS/EDR.  
+3. **Containment** → Short-term (isolate host) and long-term (patch vulnerabilities).  
+4. **Eradication** → Remove malware, close attack vectors.  
+5. **Recovery** → Restore systems and services safely.  
+6. **Lessons Learned** → Post-incident report, improve defenses.  
 
-## ☁️ Cloud Security  
+### ❓ How do you classify incident severity?  
+Factors include:  
+- Number of affected systems  
+- Type of attack (malware, ransomware, data exfiltration)  
+- Business impact  
+- Compliance or legal implications  
+- **Severity levels:** Low, Medium, High, Critical  
 
-❓ Explain the shared responsibility model.  
-❓ How would you detect abnormal IAM activity in AWS?  
-❓ Name one cloud-native logging service.  
+### ❓ What would you do in case of ransomware detection?  
+1. Isolate infected endpoints immediately.  
+2. Identify ransomware variant (hash, process, network connections).  
+3. Block C2 communication.  
+4. Notify IR and management teams.  
+5. Begin recovery from backups after verification.  
+
+### ❓ What is the difference between containment and eradication?  
+- **Containment:** Limit the impact of the incident (network isolation, blocking accounts).  
+- **Eradication:** Remove the root cause of the incident (malware removal, patching vulnerabilities).  
+
+### ❓ How do you preserve evidence during an incident?  
+- Capture volatile data (RAM, processes, network connections).  
+- Collect relevant logs from endpoints and network devices.  
+- Avoid altering original evidence.  
+- Document actions in chain-of-custody logs.  
+
+### ❓ What tools are commonly used in SOC for Incident Response?  
+- SIEMs: Splunk, ELK, QRadar, Wazuh  
+- EDR: CrowdStrike, SentinelOne, Carbon Black  
+- Network: Wireshark, Zeek, tcpdump  
+- Forensics: FTK, Autopsy, Volatility  
+
+### ❓ How do you handle a phishing incident?  
+1. Isolate affected account.  
+2. Analyze email headers and attachments.  
+3. Search SIEM for similar indicators.  
+4. Reset credentials and enforce MFA.  
+5. Educate users and update phishing rules.  
+
+### ❓ What metrics are used to measure Incident Response effectiveness?  
+- **MTTD (Mean Time to Detect)**  
+- **MTTR (Mean Time to Respond/Recover)**  
+- Number of incidents resolved within SLA  
+- Repeat incident rate  
+
+### ❓ What is a playbook and how is it used in Incident Response?  
+A playbook defines step-by-step actions for common incidents (malware, phishing, DDoS), ensuring consistency and speed in response.  
+
+### ❓ How do you coordinate with other teams during an incident?  
+- Notify IT, network, and management teams.  
+- Share relevant logs and analysis.  
+- Collaborate on containment, eradication, and recovery.  
+- Maintain clear communication and documentation.  
 
 ---
 
 ## 🕳️ Vulnerabilities & Exploits  
 
-❓ What is CVE & CVSS?  
-❓ Difference between vulnerability scanning and penetration testing?  
-❓ How do you handle zero-days?  
+Vulnerabilities & Exploits focus on identifying weaknesses in systems and understanding how attackers may exploit them. SOC analysts use scanning, threat intelligence, and patching strategies to reduce risk.  
+
+### ❓ What is CVE & CVSS?  
+**CVE (Common Vulnerabilities and Exposures):** Public database of known vulnerabilities.  
+**CVSS (Common Vulnerability Scoring System):** Provides a severity score to prioritize remediation.  
+
+### ❓ What is the difference between vulnerability scanning and penetration testing?  
+**Vulnerability scanning:** Automated tool to detect known weaknesses.  
+**Penetration testing:** Manual or automated simulation of attacks to exploit vulnerabilities.  
+
+### ❓ How do you handle zero-days?  
+Implement network segmentation, monitoring, and anomaly detection. Apply virtual patching and monitor threat intelligence feeds until an official patch is available.  
+
+### ❓ What is a misconfiguration vulnerability?  
+Security gaps caused by incorrect system, network, or cloud settings, e.g., open S3 buckets, weak ACLs, default credentials.  
+
+### ❓ How do you prioritize vulnerabilities in a SOC?  
+Based on **CVSS score, exploit availability, business impact, and asset criticality**. Focus first on high-risk vulnerabilities affecting critical systems.
+
 
 ---
 
 ## 🛠️ Security Tools  
 
-- SIEM: Splunk, QRadar, ELK, Wazuh  
-- SOAR: Shuffle, Cortex XSOAR  
-- IDS/IPS: Snort, Suricata  
-- Threat Feeds: MISP, OTX  
+Security tools are essential for SOC analysts to detect, investigate, and respond to threats effectively. Common tools cover SIEM, SOAR, IDS/IPS, and threat intelligence feeds.  
 
-📸 *[Insert screenshot: Splunk dashboard with alerting]*  
+## 📌 Key Interview Questions  
+
+### ❓ Name some popular SIEM tools and their advantages.  
+Splunk, QRadar, ELK, Wazuh; each offers centralized logging, correlation rules, and alerting capabilities.  
+
+### ❓ What is a SOAR platform and how does it help SOC operations?  
+SOAR automates response workflows, integrates threat intelligence, and reduces manual alert handling (examples: Shuffle, Cortex XSOAR).  
+
+### ❓ How do IDS and IPS differ, and why are they important?  
+IDS detects suspicious network activity; IPS can block it. Tools like Snort and Suricata help prevent attacks.  
+
+### ❓ What are threat intelligence feeds, and how are they used in SOC?  
+Feeds like MISP and OTX provide IoCs and TTPs to enrich SIEM alerts and support proactive hunting.  
+
+### ❓ How do you integrate multiple security tools effectively?  
+By connecting SIEM, SOAR, IDS/IPS, and threat feeds to provide correlation, automated response, and centralized monitoring.  
 
 ---
 
 ## 📚 Case Study Questions  
 
-- How would you investigate a brute-force attack?  
-- How would you analyze phishing email headers?  
-- What steps would you take during lateral movement detection?  
+Case study questions test practical SOC skills in analyzing incidents and applying knowledge to real-world scenarios.  
+
+### ❓ How would you investigate a brute-force attack?  
+👉 Analyze logs from SIEM/EDR, identify the source IP, check affected accounts, and implement containment measures (block IP, reset passwords).  
+
+### ❓ How would you analyze phishing email headers?  
+👉 Inspect the “From” address, DKIM/SPF/DMARC records, URLs, and attachments to identify malicious intent.  
+
+### ❓ What steps would you take during lateral movement detection?  
+👉 Monitor internal network traffic, look for unusual authentication events, review SIEM alerts, and isolate affected systems.  
+
+### ❓ How would you respond to a detected malware outbreak?  
+👉 Isolate infected endpoints, collect IoCs, run sandbox analysis, notify IR team, and initiate recovery procedures.  
+
+### ❓ How would you handle a cloud misconfiguration incident?  
+👉 Identify misconfigured resources, restrict access, check for exfiltrated data, implement remediation, and monitor for recurring issues. 
 
 ---
 
 ## 👥 Behavioral & Scenario Questions  
 
-- How do you prioritize multiple alerts?  
-- Tell me about a time you solved a difficult incident.  
-- How do you keep yourself updated with the latest threats?  
+Behavioral questions evaluate soft skills, prioritization, and problem-solving abilities in real SOC scenarios.  
+
+### ❓ How do you prioritize multiple alerts?  
+Assess severity, business impact, and affected assets. Focus first on critical incidents with high risk.  
+
+### ❓ Tell me about a time you solved a difficult incident.  
+Describe the situation, actions you took to investigate and resolve it, and the lessons learned.  
+
+### ❓ How do you keep yourself updated with the latest threats?  
+Follow threat intelligence feeds, security blogs, vendor advisories, social media (e.g., Twitter, LinkedIn), and participate in training.  
+
+### ❓ How do you handle pressure during a critical security incident?  
+Stay calm, follow the playbook, communicate clearly with the team, and document all actions.  
+
+### ❓ How do you communicate findings to non-technical stakeholders?  
+Use clear language, focus on impact, provide recommendations, and avoid technical jargon.  
+
