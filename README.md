@@ -372,6 +372,9 @@ Malware analysis helps SOC analysts understand, detect, and respond to malicious
 ### ❓ What are common types of malware?  
 Virus, Worm, Trojan, Ransomware, Spyware, Rootkit, Adware, Keylogger.  
 
+📸 *[Common Types of Malware]*  
+![Common Types of Malware](images/common_malware_types.png)
+
 ### ❓ What is the difference between Static and Dynamic Malware Analysis?   
 - **Static Analysis** → Examining the file without executing it (hashing, strings, file headers, AV scans).  
 - **Dynamic Analysis** → Running the file in a sandbox or controlled environment to observe behavior.  
@@ -417,7 +420,10 @@ Incident Response (IR) is the process of identifying, containing, mitigating, an
 3. **Containment** → Short-term (isolate host) and long-term (patch vulnerabilities).  
 4. **Eradication** → Remove malware, close attack vectors.  
 5. **Recovery** → Restore systems and services safely.  
-6. **Lessons Learned** → Post-incident report, improve defenses.  
+6. **Lessons Learned** → Post-incident report, improve defenses.
+
+📸 *[6 Phases of the Incident Response]*  
+![6 Phases of the Incident Response](images/incident_response_steps.png)
 
 ### ❓ How do you classify incident severity?  
 Factors include:  
