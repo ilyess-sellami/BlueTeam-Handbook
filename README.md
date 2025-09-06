@@ -75,7 +75,7 @@ Organizations need a SOC to:
 - **Cloud logs:** AWS CloudTrail, Azure Monitor, GCP Logs.
 
 📸 *[Common Log Data types]*  
-
+![Common Log Data types](screenshots/log_data_types.png)
 
 ### ❓ What is the Cyber Kill Chain model?  
 The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:  
@@ -90,6 +90,7 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
 👉 SOC teams map detections and defenses to each phase.
 
 📸 *[Cyber Kill Chain model]*  
+![Cyber Kill Chain model](screenshots/cyber_kill_chain.png)
 
 
 ### ❓ What is the MITRE ATT&CK framework and why is it important for SOC?  
@@ -142,6 +143,7 @@ Log normalization is the process of **standardizing log data** from different so
 A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.  
 
 📸 *[Example Wazuh SIEM dashboard]*  
+![Example Wazuh SIEM dashboard](screenshots/example_siem_dashboard.png)
 
 ### ❓ What is the difference between on-premises and cloud SIEM?  
 - **On-premises:** Installed in local infrastructure; full control, higher maintenance.  
@@ -156,6 +158,7 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 - **Presentation Layer:** Dashboards, alerts, reports for SOC analysts.  
 
 📸 *[Example ELK SIEM architecture]*  
+![Example ELK SIEM architecture](screenshots/example_elk_siem_architecure.png)
 
 ### ❓ What is the workflow of a SIEM in a SOC?  
 1. **Log Collection:** Gather logs from multiple sources.  
@@ -167,6 +170,7 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 7. **Reporting:** Metrics, KPIs, compliance reports.
 
 📸 *[SIEM workflow]*  
+![SIEM workflow](screenshots/siem_work_flow.png)
 
 ### ❓ What are the key challenges in SIEM deployment?  
 - Handling **large volumes of logs** without performance loss.  
@@ -200,6 +204,9 @@ Network Security focuses on protecting the organization’s network infrastructu
 - **OSI (7 layers):** Application, Presentation, Session, Transport, Network, Data Link, Physical.  
 - **TCP/IP (4 layers):** Application, Transport, Internet, Network Access.  
 - OSI is theoretical; TCP/IP is practical and used in real networking.  
+
+📸 *[OSI vs TCP/IP]*  
+![OSI vs TCP/IP](screenshots/osi_tcpip.png)
 
 ### ❓ How would you detect a DDoS attack?  
 - **Indicators:** Unusual traffic spikes, service unavailability, abnormal bandwidth usage.  
@@ -235,11 +242,15 @@ Network Security focuses on protecting the organization’s network infrastructu
 - Ensures **confidentiality, integrity, and authentication**.  
 
 📸 *[VPN tunnel diagram]*  
+![VPN tunnel diagram](screenshots/vpn_tunneling.png)
 
 ### ❓ Explain Zero Trust Network Security.  
 - "Never trust, always verify."  
 - Every request is authenticated, authorized, and encrypted.  
 - Reduces lateral movement risks.  
+
+📸 *[Zero Trust Security]*  
+![Zero Trust Security](screenshots/zero_trust.png)
 
 ### ❓ What is network segmentation and why is it important?  
 - Dividing a network into smaller zones with limited communication.  
@@ -255,7 +266,6 @@ Network Security focuses on protecting the organization’s network infrastructu
 - Decrypts encrypted traffic at the firewall/proxy for inspection.  
 - Detects malware hidden in HTTPS.  
 - Balance between **security and privacy**.  
-
 
 ### ❓ How would you investigate a suspicious IP connection?  
 1. Identify source/destination IP from logs.  
