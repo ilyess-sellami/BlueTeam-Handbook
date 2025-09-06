@@ -71,9 +71,12 @@ Organizations need a SOC to:
 - **Endpoint logs:** Antivirus, EDR, Windows Event IDs, Sysmon.  
 - **Authentication logs:** Active Directory, LDAP, IAM systems.  
 - **Application logs:** Web servers, databases.  
-- **Cloud logs:** AWS CloudTrail, Azure Monitor, GCP Logs.  
+- **Cloud logs:** AWS CloudTrail, Azure Monitor, GCP Logs.
 
-### ❓ What is the Kill Chain model?  
+📸 *[Common Log Data types]*  
+
+
+### ❓ What is the Cyber Kill Chain model?  
 The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:  
 1. Reconnaissance  
 2. Weaponization  
@@ -82,8 +85,11 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
 5. Installation  
 6. Command & Control  
 7. Actions on Objectives
- 
-👉 SOC teams map detections and defenses to each phase.  
+
+👉 SOC teams map detections and defenses to each phase.
+
+📸 *[Cyber Kill Chain model]*  
+
 
 ### ❓ What is the MITRE ATT&CK framework and why is it important for SOC?  
 - **MITRE ATT&CK** is a knowledge base of **tactics, techniques, and procedures (TTPs)** used by adversaries.  
@@ -105,10 +111,79 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
 
 ## 📊 SIEM (Security Information and Event Management)  
 
-❓ What is SIEM and how does it work?  
-❓ Name 3 popular SIEM tools and their advantages.  
-❓ What’s the difference between a correlation rule and a detection use case?  
-📸 *[Insert screenshot of a SIEM dashboard]*  
+### ❓ What is a SIEM and how does it work?  
+A **SIEM** collects, correlates, and analyzes security events from multiple sources in real-time.  
+It helps SOC teams **detect, investigate, and respond** to threats efficiently.  
+- **Data sources:** Logs from firewalls, endpoints, servers, applications, and cloud services.  
+- **Functions:** Aggregation, normalization, correlation, alerting, reporting.  
+
+### ❓ Name 3 popular SIEM tools and their advantages.  
+- **Splunk:** Powerful search, dashboarding, and app ecosystem.  
+- **QRadar:** Advanced correlation engine and threat intelligence integration.  
+- **Wazuh / ELK:** Open-source, customizable, great for learning and labs.
+
+
+### ❓ What’s the difference between a correlation rule and a detection use case?  
+- **Correlation Rule:** Combines multiple events to generate an alert.  
+  - Example: 5 failed logins + 1 successful login = alert.  
+- **Detection Use Case:** Broader scenario the SOC wants to detect, often implemented via rules, dashboards, or playbooks.  
+
+### ❓ What is log normalization in SIEM?  
+Log normalization is the process of **standardizing log data** from different sources so the SIEM can **correlate and analyze** it effectively.  
+
+### ❓ What is the difference between real-time and historical analysis in SIEM?  
+- **Real-time:** Detects threats as they occur using live data streams.  
+- **Historical:** Investigates past incidents or trends using stored logs.  
+
+### ❓ What is a SIEM dashboard?  
+A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.  
+📸 *[Example Wazuh SIEM dashboard]*  
+
+### ❓ What is the difference between on-premises and cloud SIEM?  
+- **On-premises:** Installed in local infrastructure; full control, higher maintenance.  
+- **Cloud SIEM:** Hosted in the cloud; scalable, easier deployment, often subscription-based.  
+
+### ❓ Describe a typical SIEM architecture.  
+- **Data Sources:** Endpoints, network devices, applications, cloud logs.  
+- **Log Collection Layer:** Agents or syslog servers collect and forward data.  
+- **Parsing & Normalization Layer:** Converts raw logs into structured events.  
+- **Correlation & Analysis Layer:** Applies rules, detection logic, and machine learning.  
+- **Storage Layer:** Retains historical logs for investigation and compliance.  
+- **Presentation Layer:** Dashboards, alerts, reports for SOC analysts.  
+📸 *[Example ELK SIEM architecture]*  
+
+### ❓ What is the workflow of a SIEM in a SOC?  
+1. **Log Collection:** Gather logs from multiple sources.  
+2. **Normalization:** Convert logs to a standard format.  
+3. **Correlation & Detection:** Identify patterns, anomalies, or threats.  
+4. **Alerting:** Generate alerts for suspicious events.  
+5. **Investigation:** SOC analysts review alerts, perform triage, escalate if needed.  
+6. **Response:** Containment, mitigation, and remediation of incidents.  
+7. **Reporting:** Metrics, KPIs, compliance reports.
+
+📸 *[SIEM workflow]*  
+
+### ❓ What are the key challenges in SIEM deployment?  
+- Handling **large volumes of logs** without performance loss.  
+- **False positives** from poorly tuned rules.  
+- Integrating **diverse data sources** from different vendors.  
+- Maintaining **retention policies** for compliance.  
+- **Skill gaps**: SOC staff need SIEM expertise.  
+
+### ❓ What is the difference between agent-based and agentless log collection?  
+- **Agent-based:** Software installed on endpoints to forward logs securely and reliably.  
+- **Agentless:** Collects logs remotely (e.g., via syslog, API) without installing software on endpoints.
+
+### ❓ How does a SIEM support threat hunting?  
+- Provides **historical data and correlations** for hunting.  
+- Allows analysts to **query logs** across multiple sources.  
+- Integrates **MITRE ATT&CK and threat intelligence feeds**.  
+- Helps identify **unknown/advanced threats** proactively.  
+
+### ❓ How does a SIEM integrate with SOAR?  
+- SIEM generates alerts.  
+- SOAR automates **playbooks** to investigate, contain, and remediate incidents.  
+- Reduces **manual effort** and improves **response speed**.
 
 ---
 
