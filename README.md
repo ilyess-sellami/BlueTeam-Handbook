@@ -25,7 +25,14 @@ This handbook covers everything from **SIEMs** to **Incident Response**, with ca
 
 ## 🏢 SOC Fundamentals  
 
-❓ What is a SOC and why do organizations need it?  
+### ❓ What is a SOC and why do organizations need it?  
+A **Security Operations Center (SOC)** is a centralized unit that **monitors, detects, analyzes, and responds** to cybersecurity incidents.  
+Organizations need a SOC to:  
+- Provide **24/7 monitoring** of systems and networks.  
+- Detect **anomalies, intrusions, and threats** in real-time.  
+- Support **incident response** and reduce business impact.  
+- Ensure compliance with **regulatory frameworks** (ISO 27001, PCI-DSS, HIPAA, etc.).
+
 ❓ Explain SOC roles & tiers (L1, L2, L3, Threat Hunter, IR).  
 ❓ What is the difference between detection and prevention?  
 
