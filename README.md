@@ -1,5 +1,11 @@
 # 🛡️ BlueTeam-Handbook - The Ultimate SOC1/2 Interview & Knowledge Guide  
 
+![BlueTeam-Handbook](/images/BlueTeam-Handbook.png)
+
+---
+
+## 📌 Overview 
+
 Welcome to **BlueTeam-Handbook**, your one-stop resource for mastering **SOC1/2 interview questions** and sharpening your **Blue Team defensive security skills**.  
 This handbook covers everything from **SIEMs** to **Incident Response**, with categorized questions, explanations, and real-world scenarios.  
 
