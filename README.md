@@ -79,7 +79,6 @@ Organizations need a SOC to:
 - **Application logs:** Web servers, databases.  
 - **Cloud logs:** AWS CloudTrail, Azure Monitor, GCP Logs.
 
-📸 *[Common Log Data types]*  
 ![Common Log Data types](images/log_data_types.png)
 
 ### ❓ What is the Cyber Kill Chain model?  
@@ -94,7 +93,6 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
 
 👉 SOC teams map detections and defenses to each phase.
 
-📸 *[Cyber Kill Chain model]*  
 ![Cyber Kill Chain model](images/cyber_kill_chain.png)
 
 
@@ -147,7 +145,6 @@ Log normalization is the process of **standardizing log data** from different so
 ### ❓ What is a SIEM dashboard?  
 A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.  
 
-📸 *[Example Wazuh SIEM dashboard]*  
 ![Example Wazuh SIEM dashboard](images/example_siem_dashboard.png)
 
 ### ❓ What is the difference between on-premises and cloud SIEM?  
@@ -162,7 +159,6 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 - **Storage Layer:** Retains historical logs for investigation and compliance.  
 - **Presentation Layer:** Dashboards, alerts, reports for SOC analysts.  
 
-📸 *[Example ELK SIEM architecture]*  
 ![Example ELK SIEM architecture](images/example_elk_siem_architecure.png)
 
 ### ❓ What is the workflow of a SIEM in a SOC?  
@@ -174,7 +170,6 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 6. **Response:** Containment, mitigation, and remediation of incidents.  
 7. **Reporting:** Metrics, KPIs, compliance reports.
 
-📸 *[SIEM workflow]*  
 ![SIEM workflow](images/siem_work_flow.png)
 
 ### ❓ What are the key challenges in SIEM deployment?  
@@ -210,7 +205,6 @@ Network Security focuses on protecting the organization’s network infrastructu
 - **TCP/IP (4 layers):** Application, Transport, Internet, Network Access.  
 - OSI is theoretical; TCP/IP is practical and used in real networking.  
 
-📸 *[OSI vs TCP/IP]*  
 ![OSI vs TCP/IP](images/osi_tcpip.png)
 
 ### ❓ How would you detect a DDoS attack?  
@@ -246,7 +240,6 @@ Network Security focuses on protecting the organization’s network infrastructu
 - Uses tunneling protocols (IPSec, SSL/TLS).  
 - Ensures **confidentiality, integrity, and authentication**.  
 
-📸 *[VPN tunnel diagram]*  
 ![VPN tunnel diagram](images/vpn_tunneling.png)
 
 ### ❓ Explain Zero Trust Network Security.  
@@ -254,7 +247,6 @@ Network Security focuses on protecting the organization’s network infrastructu
 - Every request is authenticated, authorized, and encrypted.  
 - Reduces lateral movement risks.  
 
-📸 *[Zero Trust Security]*  
 ![Zero Trust Security](images/zero_trust.png)
 
 ### ❓ What is network segmentation and why is it important?  
@@ -377,7 +369,6 @@ Malware analysis helps SOC analysts understand, detect, and respond to malicious
 ### ❓ What are common types of malware?  
 Virus, Worm, Trojan, Ransomware, Spyware, Rootkit, Adware, Keylogger.  
 
-📸 *[Common Types of Malware]*  
 ![Common Types of Malware](images/common_malware_types.png)
 
 ### ❓ What is the difference between Static and Dynamic Malware Analysis?   
@@ -427,7 +418,6 @@ Incident Response (IR) is the process of identifying, containing, mitigating, an
 5. **Recovery** → Restore systems and services safely.  
 6. **Lessons Learned** → Post-incident report, improve defenses.
 
-📸 *[6 Phases of the Incident Response]*  
 ![6 Phases of the Incident Response](images/incident_response_steps.png)
 
 ### ❓ How do you classify incident severity?  
