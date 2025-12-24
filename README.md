@@ -29,7 +29,7 @@ This handbook covers everything from **SIEMs** to **Incident Response**, with ca
 
 ## 🏢 SOC Fundamentals  
 
-SOC Fundamentals focus on the core roles, processes, and tools used in a Security Operations Center. Analysts monitor, detect, and respond to security incidents while understanding the SOC structure, tiers, and best practices.
+SOC Fundamentals focus on the **core roles**, **processes**, and **tools** used in a **Security Operations Center**. Analysts **monitor, detect, and respond to security incidents** while understanding the SOC structure, tiers, and best practices.
 
 ### ❓ What is a SOC and why do organizations need it?  
 A **Security Operations Center (SOC)** is a centralized unit that **monitors, detects, analyzes, and responds** to cybersecurity incidents.  
