@@ -31,6 +31,8 @@ This handbook covers everything from **SIEMs** to **Incident Response**, with ca
 
 SOC Fundamentals focus on the **core roles**, **processes**, and **tools** used in a **Security Operations Center**. Analysts **monitor, detect, and respond to security incidents** while understanding the SOC structure, tiers, and best practices.
 
+---
+
 ### ❓ What is a SOC and why do organizations need it?  
 A **Security Operations Center (SOC)** is a centralized unit that **monitors, detects, analyzes, and responds** to cybersecurity incidents.  
 Organizations need a SOC to:  
@@ -38,6 +40,8 @@ Organizations need a SOC to:
 - Detect **anomalies, intrusions, and threats** in real-time.  
 - Support **incident response** and reduce business impact.  
 - Ensure compliance with **regulatory frameworks** (ISO 27001, PCI-DSS, HIPAA, etc.).
+
+---
 
 ### ❓ Explain SOC roles & tiers (L1, L2, L3, Threat Hunter, IR).  
 
@@ -60,6 +64,8 @@ Organizations need a SOC to:
   - Specialized responders handling **containment, eradication, recovery**.  
   - Works closely with legal, PR, and management.  
 
+---
+
 ### ❓ What is the difference between detection and prevention?  
 
 - **Detection:**  
@@ -72,6 +78,8 @@ Organizations need a SOC to:
 
 👉 A mature SOC uses **both detection and prevention** to strengthen defense.  
 
+---
+
 ### ❓ What types of data/logs does a SOC collect?  
 - **Network logs:** Firewall, IDS/IPS, proxies, routers.  
 - **Endpoint logs:** Antivirus, EDR, Windows Event IDs, Sysmon.  
@@ -80,6 +88,8 @@ Organizations need a SOC to:
 - **Cloud logs:** AWS CloudTrail, Azure Monitor, GCP Logs.
 
 ![Common Log Data types](images/log_data_types.png)
+
+---
 
 ### ❓ What is the Cyber Kill Chain model?  
 The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:  
@@ -95,6 +105,7 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
 
 ![Cyber Kill Chain model](images/cyber_kill_chain.png)
 
+---
 
 ### ❓ What is the MITRE ATT&CK framework and why is it important for SOC?  
 - **MITRE ATT&CK** is a knowledge base of **tactics, techniques, and procedures (TTPs)** used by adversaries.  
@@ -104,6 +115,7 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
   - Guide threat hunting.  
   - Identify coverage gaps.
 
+---
 
 ### ❓ What are common SOC challenges?  
 - **Alert fatigue:** Too many false positives.  
@@ -118,38 +130,53 @@ The **Cyber Kill Chain** by `Lockheed Martin` describes attacker steps:
 
 SIEM focuses on collecting, analyzing, and correlating security logs from multiple sources. SOC analysts use SIEM tools to detect, investigate, and respond to threats, enabling centralized monitoring and alerting across the organization.
 
+---
+
 ### ❓ What is a SIEM and how does it work?  
 A **SIEM** collects, correlates, and analyzes security events from multiple sources in real-time.  
 It helps SOC teams **detect, investigate, and respond** to threats efficiently.  
 - **Data sources:** Logs from firewalls, endpoints, servers, applications, and cloud services.  
 - **Functions:** Aggregation, normalization, correlation, alerting, reporting.  
 
+---
+
 ### ❓ Name 3 popular SIEM tools and their advantages.  
 - **Splunk:** Powerful search, dashboarding, and app ecosystem.  
 - **QRadar:** Advanced correlation engine and threat intelligence integration.  
 - **Wazuh / ELK:** Open-source, customizable, great for learning and labs.
 
+---
 
 ### ❓ What’s the difference between a correlation rule and a detection use case?  
 - **Correlation Rule:** Combines multiple events to generate an alert.  
   - Example: 5 failed logins + 1 successful login = alert.  
 - **Detection Use Case:** Broader scenario the SOC wants to detect, often implemented via rules, dashboards, or playbooks.  
 
+---
+
 ### ❓ What is log normalization in SIEM?  
 Log normalization is the process of **standardizing log data** from different sources so the SIEM can **correlate and analyze** it effectively.  
+
+---
 
 ### ❓ What is the difference between real-time and historical analysis in SIEM?  
 - **Real-time:** Detects threats as they occur using live data streams.  
 - **Historical:** Investigates past incidents or trends using stored logs.  
+
+---
 
 ### ❓ What is a SIEM dashboard?  
 A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.  
 
 ![Example Wazuh SIEM dashboard](images/example_siem_dashboard.png)
 
+---
+
 ### ❓ What is the difference between on-premises and cloud SIEM?  
 - **On-premises:** Installed in local infrastructure; full control, higher maintenance.  
 - **Cloud SIEM:** Hosted in the cloud; scalable, easier deployment, often subscription-based.  
+
+---
 
 ### ❓ Describe a typical SIEM architecture.  
 - **Data Sources:** Endpoints, network devices, applications, cloud logs.  
@@ -160,6 +187,8 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 - **Presentation Layer:** Dashboards, alerts, reports for SOC analysts.  
 
 ![Example ELK SIEM architecture](images/example_elk_siem_architecure.png)
+
+---
 
 ### ❓ What is the workflow of a SIEM in a SOC?  
 1. **Log Collection:** Gather logs from multiple sources.  
@@ -172,6 +201,8 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 
 ![SIEM workflow](images/siem_work_flow.png)
 
+---
+
 ### ❓ What are the key challenges in SIEM deployment?  
 - Handling **large volumes of logs** without performance loss.  
 - **False positives** from poorly tuned rules.  
@@ -179,15 +210,21 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 - Maintaining **retention policies** for compliance.  
 - **Skill gaps**: SOC staff need SIEM expertise.  
 
+---
+
 ### ❓ What is the difference between agent-based and agentless log collection?  
 - **Agent-based:** Software installed on endpoints to forward logs securely and reliably.  
 - **Agentless:** Collects logs remotely (e.g., via syslog, API) without installing software on endpoints.
+
+---
 
 ### ❓ How does a SIEM support threat hunting?  
 - Provides **historical data and correlations** for hunting.  
 - Allows analysts to **query logs** across multiple sources.  
 - Integrates **MITRE ATT&CK and threat intelligence feeds**.  
 - Helps identify **unknown/advanced threats** proactively.  
+
+---
 
 ### ❓ How does a SIEM integrate with SOAR?  
 - SIEM generates alerts.  
@@ -200,6 +237,8 @@ A **dashboard** visualizes key metrics, alerts, and trends for SOC analysts.
 
 Network Security focuses on protecting the organization’s network infrastructure, monitoring traffic, and detecting malicious activity. SOC analysts analyze logs, IDS/IPS alerts, and network flows to identify and respond to threats in real time.
 
+---
+
 ### ❓ Explain the difference between the OSI and TCP/IP models.  
 - **OSI (7 layers):** Application, Presentation, Session, Transport, Network, Data Link, Physical.  
 - **TCP/IP (4 layers):** Application, Transport, Internet, Network Access.  
@@ -207,14 +246,20 @@ Network Security focuses on protecting the organization’s network infrastructu
 
 ![OSI vs TCP/IP](images/osi_tcpip.png)
 
+---
+
 ### ❓ How would you detect a DDoS attack?  
 - **Indicators:** Unusual traffic spikes, service unavailability, abnormal bandwidth usage.  
 - **Detection tools:** NetFlow, IDS/IPS, SIEM alerts, firewall logs.  
 - **SOC action:** Identify attack type (volumetric, application-layer, protocol), mitigate via rate-limiting, WAF, scrubbing.  
 
+---
+
 ### ❓ IDS vs IPS – key differences.  
 - **IDS (Intrusion Detection System):** Monitors and alerts on suspicious traffic, but does not block.  
 - **IPS (Intrusion Prevention System):** Detects and blocks malicious traffic in real-time.  
+
+---
 
 ### ❓ What are common types of network attacks?  
 - DDoS / DoS  
@@ -222,6 +267,8 @@ Network Security focuses on protecting the organization’s network infrastructu
 - ARP Spoofing  
 - DNS Poisoning  
 - Port Scanning & Reconnaissance  
+
+---
 
 ### ❓ What is a firewall and what are its types?  
 - **Firewall:** A security device that monitors and controls traffic based on rules.  
@@ -231,9 +278,13 @@ Network Security focuses on protecting the organization’s network infrastructu
   - Application Firewall (WAF)  
   - Next-Gen Firewall (NGFW)  
 
+---
+
 ### ❓ Explain the difference between symmetric and asymmetric encryption.  
 - **Symmetric:** Same key for encryption/decryption (AES, DES). Fast but key distribution is hard.  
 - **Asymmetric:** Public/private key pair (RSA, ECC). Secure key exchange, but slower.  
+
+---
 
 ### ❓ What is a VPN and how does it secure communication?  
 - **VPN (Virtual Private Network):** Encrypts traffic between user and network over public internet.  
@@ -242,6 +293,8 @@ Network Security focuses on protecting the organization’s network infrastructu
 
 ![VPN tunnel diagram](images/vpn_tunneling.png)
 
+---
+
 ### ❓ Explain Zero Trust Network Security.  
 - "Never trust, always verify."  
 - Every request is authenticated, authorized, and encrypted.  
@@ -249,20 +302,28 @@ Network Security focuses on protecting the organization’s network infrastructu
 
 ![Zero Trust Security](images/zero_trust.png)
 
+---
+
 ### ❓ What is network segmentation and why is it important?  
 - Dividing a network into smaller zones with limited communication.  
 - Prevents lateral movement, improves performance, enforces least privilege.  
 - Example: Separating user VLANs from critical servers.  
+
+---
 
 ### ❓ How does DNS monitoring help in SOC operations?  
 - Detects suspicious domains (C2 servers, phishing).  
 - Monitors unusual DNS queries (fast-flux, tunneling).  
 - Can trigger alerts in SIEM.  
 
+---
+
 ### ❓ What is SSL/TLS inspection and why is it used?  
 - Decrypts encrypted traffic at the firewall/proxy for inspection.  
 - Detects malware hidden in HTTPS.  
 - Balance between **security and privacy**.  
+
+---
 
 ### ❓ How would you investigate a suspicious IP connection?  
 1. Identify source/destination IP from logs.  
@@ -277,9 +338,13 @@ Network Security focuses on protecting the organization’s network infrastructu
 
 Endpoint Security focuses on monitoring and protecting individual devices (workstations, servers, laptops) from malicious activity. SOC analysts use logs, EDR, and behavior analysis to detect, investigate, and respond to threats on endpoints.
 
+---
+
 ### ❓ What is the difference between Antivirus (AV) and Endpoint Detection & Response (EDR)?  
 - **Antivirus (AV):** Signature-based detection of known malware. Limited against advanced threats.  
 - **EDR:** Provides real-time monitoring, detection, and response capabilities for suspicious activities on endpoints. Includes behavior analysis, process monitoring, and forensic data.  
+
+---
 
 ### ❓ How would you investigate a suspicious process on an endpoint?  
 1. Identify the process (PID, parent process).  
@@ -289,10 +354,14 @@ Endpoint Security focuses on monitoring and protecting individual devices (works
 5. Review network connections (Sysmon event 3).  
 6. Escalate or terminate process if malicious.  
 
+---
+
 ### ❓ What is Sysmon and how is it used in SOC?  
 - **Sysmon (System Monitor):** Windows tool that logs detailed system activity.  
 - Captures process creation, network connections, file modifications, registry changes.  
 - Provides visibility for **threat hunting** and **incident investigations**.  
+
+---
 
 ### ❓ How would you investigate a potential ransomware infection on an endpoint?  
 1. Identify suspicious process activity (mass file changes).  
@@ -301,10 +370,14 @@ Endpoint Security focuses on monitoring and protecting individual devices (works
 4. Isolate endpoint immediately.  
 5. Check logs for initial infection vector (phishing, exploit).  
 
+---
+
 ### ❓ How do you monitor Linux endpoints in SOC?  
 - Use auditd, Sysmon for Linux, OSSEC/Wazuh agents.  
 - Monitor `/var/log/auth.log` for login activity.  
 - Watch for suspicious processes, privilege escalations, and cron jobs.  
+
+---
 
 ### ❓ What are Indicators of Compromise (IoCs) on endpoints?  
 - Suspicious processes (explorer.exe spawning cmd.exe).  
@@ -320,8 +393,12 @@ Endpoint Security focuses on monitoring and protecting individual devices (works
 
 Threat Intelligence & Hunting helps SOC analysts proactively search for malicious activity and understand the tactics, techniques, and procedures (TTPs) of adversaries.  
 
+---
+
 ### ❓ What is Threat Intelligence, and why is it important in SOC operations?  
 Threat Intelligence provides context about attackers, their methods, and indicators, enabling better detection, response, and prevention.  
+
+---
 
 ### ❓ What is the difference between Threat Intelligence, Threat Hunting, and Threat Detection?  
  
@@ -329,13 +406,19 @@ Threat Intelligence provides context about attackers, their methods, and indicat
 - **Threat Detection** → Identifying malicious activities using alerts, SIEMs, and EDR.  
 - **Threat Hunting** → Proactively searching for hidden threats that bypass automated detection.  
 
+---
+
 ### ❓ What is an IoC vs IoA?  
 
 - **IoC (Indicator of Compromise)** → Evidence of a breach (IP, hash, domain).  
 - **IoA (Indicator of Attack)** → Evidence of malicious intent or behavior (abnormal PowerShell execution, privilege escalation).  
 
+---
+
 ### ❓ Explain the MITRE ATT&CK framework.  
 ATT&CK is a knowledge base of adversary tactics and techniques mapped to real-world attack behaviors. Analysts use it to understand threats and align detection strategies.  
+
+---
 
 ### ❓ What are the different types of Threat Intelligence?  
 
@@ -344,11 +427,17 @@ ATT&CK is a knowledge base of adversary tactics and techniques mapped to real-wo
 - **Operational** → Threat actor campaigns and ongoing attacks.  
 - **Technical** → IoCs (IP, domains, hashes).  
 
+---
+
 ### ❓ What sources can provide Threat Intelligence feeds?  
 Open-source (OSINT), commercial threat intel providers, ISACs, government advisories, internal telemetry.  
 
+---
+
 ### ❓ What is a hunting hypothesis, and why is it important?  
 A hypothesis is an assumption (e.g., "Adversary might use credential dumping") that guides the hunting process, ensuring it’s structured and measurable.  
+
+---
 
 ### ❓ Give an example of a hunting query.  
 Example in Splunk:  
@@ -364,19 +453,25 @@ AND like(CommandLine, "%-enc%")
 
 Malware analysis helps SOC analysts understand, detect, and respond to malicious software infections. In a SOC1/2 context, the focus is usually on **basic identification, triage, and escalation** rather than reverse engineering.  
 
-## 📌 Key Interview Questions  
+---
 
 ### ❓ What are common types of malware?  
 Virus, Worm, Trojan, Ransomware, Spyware, Rootkit, Adware, Keylogger.  
 
 ![Common Types of Malware](images/common_malware_types.png)
 
+---
+
 ### ❓ What is the difference between Static and Dynamic Malware Analysis?   
 - **Static Analysis** → Examining the file without executing it (hashing, strings, file headers, AV scans).  
 - **Dynamic Analysis** → Running the file in a sandbox or controlled environment to observe behavior.  
 
+---
+
 ### ❓ How would you analyze a suspicious file hash?  
 Use online services (VirusTotal, Hybrid Analysis, Intezer) or internal sandboxes to check reputation and behavior.  
+
+---
 
 ### ❓ What is the role of a sandbox in malware analysis?  
 Provides a safe environment to execute malware and observe its behavior (network connections, file changes, registry modifications).  
