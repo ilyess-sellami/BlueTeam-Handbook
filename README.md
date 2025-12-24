@@ -13,17 +13,17 @@ This handbook covers everything from **SIEMs** to **Incident Response**, with ca
 
 ## 📑 Table of Contents  
 
-- [SOC Fundamentals](#-soc-fundamentals)  
-- [SIEM](#-siem-security-information-and-event-management)  
-- [Network Security](#-network-security)  
-- [Endpoint Security](#-endpoint-security)  
-- [Threat Intelligence & Hunting](#-threat-intelligence--hunting)  
-- [Malware Analysis](#-malware-analysis-basic-for-soc)  
-- [Incident Response](#-incident-response)  
-- [Vulnerabilities & Exploits](#-vulnerabilities--exploits)  
-- [Security Tools](#-security-tools)  
-- [Case Study Questions](#-case-study-questions)  
-- [Behavioral & Scenario Questions](#-behavioral--scenario-questions)  
+- [🏢 SOC Fundamentals](#-soc-fundamentals)  
+- [📊 SIEM](#-siem-security-information-and-event-management)  
+- [🌐 Network Security](#-network-security)  
+- [💻 Endpoint Security](#-endpoint-security)  
+- [🔎 Threat Intelligence & Hunting](#-threat-intelligence--hunting)  
+- [🐛 Malware Analysis](#-malware-analysis-basic-for-soc)  
+- [🚨 Incident Response](#-incident-response)  
+- [🕳️ Vulnerabilities & Exploits](#-vulnerabilities--exploits)  
+- [🛠️ Security Tools](#-security-tools)  
+- [📚 Case Study Questions](#-case-study-questions)  
+- [👥 Behavioral & Scenario Questions](#-behavioral--scenario-questions)  
 
 ---
 
