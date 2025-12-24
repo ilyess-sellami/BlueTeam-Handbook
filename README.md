@@ -476,9 +476,13 @@ Use online services (VirusTotal, Hybrid Analysis, Intezer) or internal sandboxes
 ### ❓ What is the role of a sandbox in malware analysis?  
 Provides a safe environment to execute malware and observe its behavior (network connections, file changes, registry modifications).  
 
+---
+
 ### ❓ What is the difference between a hash (MD5/SHA256) and a YARA rule?   
 - **Hash** → Identifies a specific file (but easy to bypass with changes).  
 - **YARA rule** → Identifies malware families or patterns of malicious behavior across multiple variants.  
+
+---
 
 ### ❓ What Windows Event IDs are useful for detecting malware execution?  
 Common ones include:  
@@ -487,14 +491,22 @@ Common ones include:
 - **7045** → New service installed  
 - **4720** → New user account created  
 
+---
+
 ### ❓ How do attackers use persistence techniques?  
 Examples: Run keys in registry, scheduled tasks, startup folders, malicious services, DLL hijacking.  
+
+---
 
 ### ❓ What is fileless malware and how is it detected?  
 Malware that operates in memory without leaving files on disk. Detected via EDR tools, PowerShell logging, Sysmon, and behavior analysis.  
 
+---
+
 ### ❓ What steps would you take if an employee reports a suspicious email attachment?  
 Isolate the file, collect metadata (hash, extension), analyze in sandbox, check if similar IoCs exist in TI feeds, escalate if confirmed malicious.  
+
+---
 
 ### ❓ What is the role of Indicators of Compromise (IoCs) in malware analysis?  
 IoCs like hashes, IPs, domains, mutexes are extracted during analysis and used for detection in SIEM/EDR.  
@@ -504,6 +516,8 @@ IoCs like hashes, IPs, domains, mutexes are extracted during analysis and used f
 ## 🚨 Incident Response  
 
 Incident Response (IR) is the process of identifying, containing, mitigating, and recovering from security incidents. SOC analysts must understand the IR lifecycle and best practices.  
+
+---
 
 ### ❓ What are the 6 phases of the Incident Response lifecycle?  
 1. **Preparation** → Policies, playbooks, tools, training.  
@@ -515,6 +529,8 @@ Incident Response (IR) is the process of identifying, containing, mitigating, an
 
 ![6 Phases of the Incident Response](images/incident_response_steps.png)
 
+---
+
 ### ❓ How do you classify incident severity?  
 Factors include:  
 - Number of affected systems  
@@ -523,6 +539,8 @@ Factors include:
 - Compliance or legal implications  
 - **Severity levels:** Low, Medium, High, Critical  
 
+---
+
 ### ❓ What would you do in case of ransomware detection?  
 1. Isolate infected endpoints immediately.  
 2. Identify ransomware variant (hash, process, network connections).  
@@ -530,9 +548,13 @@ Factors include:
 4. Notify IR and management teams.  
 5. Begin recovery from backups after verification.  
 
+---
+
 ### ❓ What is the difference between containment and eradication?  
 - **Containment:** Limit the impact of the incident (network isolation, blocking accounts).  
 - **Eradication:** Remove the root cause of the incident (malware removal, patching vulnerabilities).  
+
+---
 
 ### ❓ How do you preserve evidence during an incident?  
 - Capture volatile data (RAM, processes, network connections).  
@@ -540,11 +562,15 @@ Factors include:
 - Avoid altering original evidence.  
 - Document actions in chain-of-custody logs.  
 
+---
+
 ### ❓ What tools are commonly used in SOC for Incident Response?  
 - SIEMs: Splunk, ELK, QRadar, Wazuh  
 - EDR: CrowdStrike, SentinelOne, Carbon Black  
 - Network: Wireshark, Zeek, tcpdump  
 - Forensics: FTK, Autopsy, Volatility  
+
+---
 
 ### ❓ How do you handle a phishing incident?  
 1. Isolate affected account.  
@@ -553,14 +579,20 @@ Factors include:
 4. Reset credentials and enforce MFA.  
 5. Educate users and update phishing rules.  
 
+---
+
 ### ❓ What metrics are used to measure Incident Response effectiveness?  
 - **MTTD (Mean Time to Detect)**  
 - **MTTR (Mean Time to Respond/Recover)**  
 - Number of incidents resolved within SLA  
 - Repeat incident rate  
 
+---
+
 ### ❓ What is a playbook and how is it used in Incident Response?  
 A playbook defines step-by-step actions for common incidents (malware, phishing, DDoS), ensuring consistency and speed in response.  
+
+---
 
 ### ❓ How do you coordinate with other teams during an incident?  
 - Notify IT, network, and management teams.  
@@ -574,23 +606,32 @@ A playbook defines step-by-step actions for common incidents (malware, phishing,
 
 Vulnerabilities & Exploits focus on identifying weaknesses in systems and understanding how attackers may exploit them. SOC analysts use scanning, threat intelligence, and patching strategies to reduce risk.  
 
+---
+
 ### ❓ What is CVE & CVSS?  
 - **CVE (Common Vulnerabilities and Exposures):** Public database of known vulnerabilities.  
 - **CVSS (Common Vulnerability Scoring System):** Provides a severity score to prioritize remediation.  
+
+---
 
 ### ❓ What is the difference between vulnerability scanning and penetration testing?  
 - **Vulnerability scanning:** Automated tool to detect known weaknesses.  
 - **Penetration testing:** Manual or automated simulation of attacks to exploit vulnerabilities.  
 
+---
+
 ### ❓ How do you handle zero-days?  
 Implement network segmentation, monitoring, and anomaly detection. Apply virtual patching and monitor threat intelligence feeds until an official patch is available.  
+
+---
 
 ### ❓ What is a misconfiguration vulnerability?  
 Security gaps caused by incorrect system, network, or cloud settings, e.g., open S3 buckets, weak ACLs, default credentials.  
 
+---
+
 ### ❓ How do you prioritize vulnerabilities in a SOC?  
 Based on **CVSS score, exploit availability, business impact, and asset criticality**. Focus first on high-risk vulnerabilities affecting critical systems.
-
 
 ---
 
@@ -598,19 +639,27 @@ Based on **CVSS score, exploit availability, business impact, and asset critical
 
 Security tools are essential for SOC analysts to detect, investigate, and respond to threats effectively. Common tools cover SIEM, SOAR, IDS/IPS, and threat intelligence feeds.  
 
-## 📌 Key Interview Questions  
+---
 
 ### ❓ Name some popular SIEM tools and their advantages.  
 Splunk, QRadar, ELK, Wazuh; each offers centralized logging, correlation rules, and alerting capabilities.  
 
+---
+
 ### ❓ What is a SOAR platform and how does it help SOC operations?  
 SOAR automates response workflows, integrates threat intelligence, and reduces manual alert handling (examples: Shuffle, Cortex XSOAR).  
+
+---
 
 ### ❓ How do IDS and IPS differ, and why are they important?  
 IDS detects suspicious network activity; IPS can block it. Tools like Snort and Suricata help prevent attacks.  
 
+---
+
 ### ❓ What are threat intelligence feeds, and how are they used in SOC?  
 Feeds like MISP and OTX provide IoCs and TTPs to enrich SIEM alerts and support proactive hunting.  
+
+---
 
 ### ❓ How do you integrate multiple security tools effectively?  
 By connecting SIEM, SOAR, IDS/IPS, and threat feeds to provide correlation, automated response, and centralized monitoring.  
@@ -621,17 +670,27 @@ By connecting SIEM, SOAR, IDS/IPS, and threat feeds to provide correlation, auto
 
 Case study questions test practical SOC skills in analyzing incidents and applying knowledge to real-world scenarios.  
 
+---
+
 ### ❓ How would you investigate a brute-force attack?  
 Analyze logs from SIEM/EDR, identify the source IP, check affected accounts, and implement containment measures (block IP, reset passwords).  
+
+---
 
 ### ❓ How would you analyze phishing email headers?  
 Inspect the “From” address, DKIM/SPF/DMARC records, URLs, and attachments to identify malicious intent.  
 
+---
+
 ### ❓ What steps would you take during lateral movement detection?  
 Monitor internal network traffic, look for unusual authentication events, review SIEM alerts, and isolate affected systems.  
 
+---
+
 ### ❓ How would you respond to a detected malware outbreak?  
 Isolate infected endpoints, collect IoCs, run sandbox analysis, notify IR team, and initiate recovery procedures.  
+
+---
 
 ### ❓ How would you handle a cloud misconfiguration incident?  
 Identify misconfigured resources, restrict access, check for exfiltrated data, implement remediation, and monitor for recurring issues. 
@@ -642,17 +701,27 @@ Identify misconfigured resources, restrict access, check for exfiltrated data, i
 
 Behavioral questions evaluate soft skills, prioritization, and problem-solving abilities in real SOC scenarios.  
 
+---
+
 ### ❓ How do you prioritize multiple alerts?  
 Assess severity, business impact, and affected assets. Focus first on critical incidents with high risk.  
+
+---
 
 ### ❓ Tell me about a time you solved a difficult incident.  
 Describe the situation, actions you took to investigate and resolve it, and the lessons learned.  
 
+---
+
 ### ❓ How do you keep yourself updated with the latest threats?  
 Follow threat intelligence feeds, security blogs, vendor advisories, social media (e.g., Twitter, LinkedIn), and participate in training.  
 
+---
+
 ### ❓ How do you handle pressure during a critical security incident?  
 Stay calm, follow the playbook, communicate clearly with the team, and document all actions.  
+
+---
 
 ### ❓ How do you communicate findings to non-technical stakeholders?  
 Use clear language, focus on impact, provide recommendations, and avoid technical jargon.  
