@@ -1,4 +1,5 @@
-# 🔵 BlueTeam-Handbook - The Ultimate SOC1/2 Interview & Knowledge Guide  
+# 🔵 BlueTeam-Handbook
+**The Ultimate SOC1/2 Interview & Knowledge Guide**
 
 ![BlueTeam-Handbook](BlueTeam-Handbook.png)
 
